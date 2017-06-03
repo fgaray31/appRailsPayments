@@ -1,15 +1,24 @@
 source 'https://rubygems.org'
 
+#Heroku should use this version of ruby
+ruby '2.3.3'
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#sqlite3 for development and testing database
+gem 'sqlite3', group:[:development, :test]
+
+#postgress for production database
+gem 'pg', group: :production
+
+#12 factor for Heroku
+gem 'rails_12factor', group: :development
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
