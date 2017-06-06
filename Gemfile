@@ -21,6 +21,9 @@ gem 'pg', group: :production
 gem 'rails_12factor', group: :development
 # Use Puma as the app server
 
+#Stripe for taking payments
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+ 
 #add twitter bootstrap
 gem 'bootstrap-sass'
 
